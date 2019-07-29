@@ -1,7 +1,7 @@
 #!/bin/bash
-echo Please input API key
+echo Please input API key which can be generated https://macaddress.io/signup
 read apiname
-echo please type macaddress
+echo please type macaddress of your device
 read varname
 echo #/bin/sh >> input.txt
 echo "curl -X GET --header 'Accept: application/json' 'https://api.macaddress.io/v1?apiKey=$apiname&output=vendor&search=$varname'" > input.txt
