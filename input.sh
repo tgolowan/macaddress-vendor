@@ -10,7 +10,6 @@ docker run -d  --name rocky --rm -i -t apirestimg bash
 docker exec -it -w /home rocky pwd
 docker exec -it -w /home rocky chmod +x input.sh
 docker exec -it -w /home rocky /bin/bash input.sh >> output.txt
-#docker exec -it -w /home rocky echo output.txt 
 docker cp rocky:home/output.txt output.txt
 docker stop rocky
 echo -e "\n" >> output.txt
