@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 echo Please input API key which can be generated https://macaddress.io/signup
 read apiname
 echo please type macaddress of your device
@@ -9,14 +9,15 @@ docker build -t apirestimg .
 docker run -d  --name rocky --rm -i -t apirestimg bash
 docker exec -it -w /home rocky pwd
 docker exec -it -w /home rocky chmod +x input.sh
-docker exec -it -w /home rocky /bin/bash input.sh >> output.txt
-docker cp rocky:home/output.txt output.txt
+docker exec -it -w /home rocky /bin/bash input.sh > output.txt
+docker ps -aqf "name=rocky" > container.id
+read dockerid
+docker cp $dockerid:home/output.txt output.txt
 docker stop rocky
 echo -e "\n" >> output.txt
 echo $'The vendor is:'
 echo $''
 tail -10 output.txt
-
 
 
 
